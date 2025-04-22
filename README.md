@@ -9,6 +9,6 @@ This Repository does not reflect a full .zshrc configuration file. It is just a 
 source <PathToCustomReposiory>/myconfig.sh
 ```
 
-to you ~/.zshrc file. 
+to your ~/.zshrc file. 
 
-This all allows you to further define environment variables.
+This allows you to further define environment variables.

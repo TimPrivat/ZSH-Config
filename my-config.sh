@@ -10,6 +10,8 @@ bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 
 
+ZSH_CUSTOM=$ZSH/custom
+
 AUTO_SUGGESTIONS_DIR="$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 AUTO_SUGGESTIONS_GIT="https://github.com/zsh-users/zsh-autosuggestions.git"
 
