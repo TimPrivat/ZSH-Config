@@ -66,6 +66,7 @@ fastfetch --version  > /dev/null 2>&1
 if [[ $? != "0" ]]; then 
   echo "Installing fastfetch"
   sudo add-apt-repository https://launchpad.net/\~zhangsongcui3371/+archive/ubuntu/fastfetchppa:nextcloud-devs/client -y     
+  sudo apt update
   sudo apt install fastfetch -y
 fi
 
