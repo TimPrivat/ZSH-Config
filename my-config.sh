@@ -10,13 +10,16 @@ bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 
 
-ZSH_CUSTOM=$ZSH/custom
+ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 
 AUTO_SUGGESTIONS_DIR="$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 AUTO_SUGGESTIONS_GIT="https://github.com/zsh-users/zsh-autosuggestions.git"
 
-SYNTAX_HIGHLIGHT_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting"
+SYNTAX_HIGHLIGHT_DIR="$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 SYNTAX_HIGHLIGHT_GIT="https://github.com/zsh-users/zsh-syntax-highlighting.git"
+
+FAST_SYNTAX_HIGHLIGHT_DIR="${ZSH_CUSTOM}/plugins/fast-syntax-highlighting"
+FAST_SYNTAX_HIGHLIGHT_GIT="https://github.com/zdharma-continuum/fast-syntax-highlighting.git"
 
 AUTO_COMPLETE_DIR="$ZSH_CUSTOM/plugins/zsh-autocomplete"
 AUTO_COMPLETE_GIT="https://github.com/marlonrichert/zsh-autocomplete.git"
@@ -28,6 +31,11 @@ AUTO_UPDATE_GIT="https://github.com/TamCore/autoupdate-oh-my-zsh-plugins"
 
 # TODO convert to loop
 
+if [ ! -d "$ZSH_CUSTOM" ]; then
+  echo "Creating $ZSH_CUSTOM"
+  mkdir -p $ZSH_CUSTOM
+fi
+
 if [ ! -d "$AUTO_SUGGESTIONS_DIR" ]; then
   echo "Installing AUTO_SUGGESTIONS"
   git clone $AUTO_SUGGESTIONS_GIT $AUTO_SUGGESTIONS_DIR
@@ -38,9 +46,14 @@ if [ ! -d "$SYNTAX_HIGHLIGHT_DIR" ]; then
   git clone $SYNTAX_HIGHLIGHT_GIT $SYNTAX_HIGHLIGHT_DIR
 fi
 
+if [ ! -d "$FAST_SYNTAX_HIGHLIGHT_DIR" ]; then
+  echo "Installing FAST_SYNTAX_HIGHLIGHT_DIR"
+  git clone $AUTO_COMPLETE_GIT $FAST_SYNTAX_HIGHLIGHT_DIR
+fi
+
 if [ ! -d "$AUTO_COMPLETE_DIR" ]; then
   echo "Installing AUTO_COMPLETE"
-  git clone $AUTO_COMPLETE_GIT $AUTO_COMPLETE_DIR
+  git clone $FAST_SYNTAX_HIGHLIGHT_GIT $AUTO_COMPLETE_DIR
 fi
 
 if [ ! -d "$AUTO_UPDATE_DIR" ]; then
@@ -48,5 +61,14 @@ if [ ! -d "$AUTO_UPDATE_DIR" ]; then
   git clone $AUTO_UPDATE_GIT $AUTO_UPDATE_DIR
 fi
 
+fastfetch --version  > /dev/null 2>&1
+
+if [[ $? != "0" ]]; then 
+  echo "Installing fastfetch"
+  sudo add-apt-repository https://launchpad.net/\~zhangsongcui3371/+archive/ubuntu/fastfetchppa:nextcloud-devs/client -y     
+  sudo apt install fastfetch -y
+fi
 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete autoupdate)
+
+fastfetch
