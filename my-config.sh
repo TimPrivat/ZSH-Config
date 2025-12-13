@@ -70,6 +70,6 @@ if [[ $? != "0" ]]; then
   sudo apt install fastfetch -y
 fi
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete autoupdate)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete autoupdate kubectl)
 
 fastfetch
