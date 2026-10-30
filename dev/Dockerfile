@@ -16,6 +16,6 @@ COPY defaults.sh .
 
 USER docker
 
-
+ENTRYPOINT [ "/etc/shell/install-shell.sh" ]
 
 
