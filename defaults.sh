@@ -3,12 +3,14 @@ ZSH_THEME="lukerandall"
 # ctrl+space to accept autosuggestion
 bindkey '^ ' autosuggest-accept
 # ctrl+ backspace to delete fullword
-bindkey '^H' backward-kill-word
+#bindkey '^H' backward-kill-word
 # pos1 to jump to beginning of line
 bindkey '^[[H' beginning-of-line
 # end  to jump to end of line
 bindkey '^[[F' end-of-line
 
+export LANG=de_DE.UTF-8
+export LC_CTYPE=de_DE.UTF-8
 export FZF_DEFAULT_OPTS="--highlight-line --info=inline-right --ansi --layout=reverse --border"
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -alt --color=always $realpath' # remember to use single quote here!!!
@@ -45,6 +47,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions \
 git clone https://github.com/Aloxaf/fzf-tab \
   ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
 
+git clone --depth=1 https://github.com/Michael-Matta1/zsh-edit-select.git \
+  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-edit-select
+
 default_plugins=(
     ansible
     git
@@ -63,6 +68,7 @@ default_plugins=(
     fzf
     fzf-tab
     zsh-autosuggestions
+    zsh-edit-select
 )
 
 # plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete autoupdate kubectl docker helm)

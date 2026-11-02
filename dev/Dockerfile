@@ -2,20 +2,20 @@ FROM ubuntu:26.04
 
 ARG SUDO_PASSWD="docker"
 
+USER root
+
 RUN apt-get update && \
-      apt-get -y install sudo passwd
+      apt-get -y install sudo passwd ghostty
 
 RUN useradd -m -s /bin/bash docker && \
     echo "${SUDO_PASSWD}:${SUDO_PASSWD}" | chpasswd && \
-    usermod -aG sudo docker && \
-    rm -rf /var/lib/apt/lists/*
+    usermod -aG sudo docker
 
-WORKDIR /etc/shell 
-COPY install-shell.sh  .
-COPY defaults.sh .
+WORKDIR /home/docker/
+COPY . .zsh/ZSH-Config
 
 USER docker
 
-ENTRYPOINT [ "/etc/shell/install-shell.sh" ]
+ENTRYPOINT [ ".zsh/ZSH-Config/install-shell.sh" ]
 
 

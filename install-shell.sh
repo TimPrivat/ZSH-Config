@@ -2,12 +2,11 @@
 
 echo "installing zsh:"
 
-packages="zsh curl git fastfetch fzf git-delta"
+packages="zsh curl git fastfetch fzf git-delta ghostty"
 
 for p in $packages; do
     if ! dpkg -s "$p" >/dev/null 2>&1; then
-        sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
-        sudo apt update -y 
+        sudo apt update -y && \
         sudo apt-get install -y $packages
         break;
     fi
@@ -21,7 +20,9 @@ $SHELL --version
 echo "installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
-cat /etc/shell/defaults.sh > ~/.zshrc
+mkdir -p ${HOME}/.config/zsh-edit-select 
+cat ${HOME}/.zsh/ZSH-Config/defaults.sh > ${HOME}/.zshrc
+cat ${HOME}/.zsh/ZSH-Config/configs/zsh-edit-select > ${HOME}/.config/zsh-edit-select/config
 zsh
 
 
