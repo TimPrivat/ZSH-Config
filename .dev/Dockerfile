@@ -6,7 +6,7 @@ ENV sudo_passwd=${SUDO_PASSWD}
 USER root
 
 RUN apt-get update && \
-      apt-get -y install sudo passwd ghostty
+      apt-get -y install sudo passwd ghostty git
 
 RUN useradd -m -s /bin/bash docker && \
     echo "${SUDO_PASSWD}:${SUDO_PASSWD}" | chpasswd && \
@@ -14,9 +14,15 @@ RUN useradd -m -s /bin/bash docker && \
 
 USER docker
 WORKDIR /home/docker/
-COPY --chown=docker:docker . .zsh/ZSH-Config 
+#COPY --chown=docker:docker . .zsh/ZSH-Config 
 
+RUN mkdir .zsh && \
+    git clone https://github.com/TimPrivat/ZSH-Config.git .zsh/ZSH-Config
+    
+WORKDIR /home/docker/.zsh/ZSH-Config
+RUN git checkout  update/10_2026
 
+WORKDIR /home/docker/
 ENTRYPOINT [ ".zsh/ZSH-Config/install-shell.sh" ]
 
 

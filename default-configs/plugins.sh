@@ -10,7 +10,8 @@ git clone https://github.com/Aloxaf/fzf-tab \
 git clone --depth=1 https://github.com/Michael-Matta1/zsh-edit-select.git \
   "${ZSH_CUSTOM:-${HOME}/.oh-my-zsh/custom}/plugins/zsh-edit-select"
 
-
+git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git \
+  "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate"
 
 default_plugins=(
     ansible
@@ -36,6 +37,7 @@ default_plugins=(
     kubectl
     microk8s
     mvn
+    ohmyzsh-full-autoupdate
     opencode
     opentofu
     pip
