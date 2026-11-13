@@ -12,10 +12,10 @@ RUN useradd -m -s /bin/bash docker && \
     echo "${SUDO_PASSWD}:${SUDO_PASSWD}" | chpasswd && \
     usermod -aG sudo docker
 
-WORKDIR /home/docker/
-COPY . .zsh/ZSH-Config
-
 USER docker
+WORKDIR /home/docker/
+COPY --chown=docker:docker . .zsh/ZSH-Config 
+
 
 ENTRYPOINT [ ".zsh/ZSH-Config/install-shell.sh" ]
 

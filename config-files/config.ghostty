@@ -1,0 +1,5 @@
+theme = "Ayu"
+clipboard-write = allow
+clipboard-read = allow
+keybind = shift+home=text:\x1b[1;2H
+keybind = shift+end=text:\x1b[1;2F
