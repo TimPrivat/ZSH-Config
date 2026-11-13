@@ -28,6 +28,32 @@ default_plugins=(
     fzf
     fzf-tab
     git
+    gnu-utils
+    golang
+    helm
+    k9s
+    kompose
+    kubectl
+    microk8s
+    mvn
+    opencode
+    opentofu
+    pip
+    pipenv
+    podman
+    python
+    rsync
+    screen
+    sdk
+    spring
+    ssh
+    sudo
+    terraform
+    timer
+    tldr
+    ubuntu
+    ufw
+    vault
     zsh-autosuggestions
     zsh-edit-select
     fast-syntax-highlighting
