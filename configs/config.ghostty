@@ -1,0 +1,3 @@
+theme = "Ayu"
+clipboard-write = allow
+clipboard-read = allow

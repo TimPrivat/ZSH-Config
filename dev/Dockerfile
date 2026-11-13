@@ -1,7 +1,8 @@
 FROM ubuntu:26.04
 
 ARG SUDO_PASSWD="docker"
-
+ENV runtime=docker
+ENV sudo_passwd=${SUDO_PASSWD}
 USER root
 
 RUN apt-get update && \

@@ -2,14 +2,18 @@
 # ctrl + shift + v : paste
 EDIT_SELECT_KEY_PASTE='^[[86;6u'
 # ctrl + shift + x : cut
-EDIT_SELECT_KEY_CUT='^[[88;6u'
+EDIT_SELECT_KEY_CUT='^[[120;6u'
 # ctrl + shift  + c : copy
 EDIT_SELECT_KEY_COPY='^[[99;6u'
 # ctrl + shift + z : undo
 EDIT_SELECT_KEY_UNDO='^[[122;6u'
 # ctrl + shift + y : redo
 EDIT_SELECT_KEY_REDO='^[[121;6u'
-# shift ctl + pos1 : select from current cursor to start of line 
+# shift ctl + pos1 : select from current cursor to start of line
 EDIT_SELECT_KEY_BUFFER_START='^[[1;6H'
-# shift + end : select from current cursor to end of line 
+# shift + end : select from current cursor to end of line
 EDIT_SELECT_KEY_BUFFER_END='^[[1;6F'
+EDIT_SELECT_MOUSE_REPLACEMENT=0
+
+  
+  
