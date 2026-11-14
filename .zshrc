@@ -1,3 +1,11 @@
+
+# location of this project
+export zsh_config_dir="${HOME}/.zsh/ZSH-Config"
+
+# update this project 
+if [[ -z "${runtime}" ]] || [[ "${runtime}" != "docker" ]]; then
+  git -C "${zsh_config_dir}" pull
+fi 
 # load default-config files
 source "${zsh_config_dir}/default-configs/env-vars.sh"
 source "${zsh_config_dir}/default-configs/zstyle-configs.sh"
@@ -11,13 +19,6 @@ source "${zsh_config_dir}/custom-configs/zstyle-configs.sh"
 source "${zsh_config_dir}/custom-configs/keybinds.sh"
 source "${zsh_config_dir}/custom-configs/plugins.sh"
 source "${zsh_config_dir}/custom-configs/functions.sh"
-
-
-# update oh-my-zsh
-omz update
-
-# update this project 
-git -C "${zsh_config_dir}" pull
 
 # load secrets 
 source "${secret_file}"

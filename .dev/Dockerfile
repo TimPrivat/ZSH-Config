@@ -17,8 +17,6 @@ WORKDIR /home/docker/
 # For docker development its better to just copy the files
 COPY --chown=docker:docker . .zsh/ZSH-Config 
 
-WORKDIR /home/docker/.zsh/ZSH-Config
-
 WORKDIR /home/docker/
 ENTRYPOINT [ ".zsh/ZSH-Config/install.sh" ]
 

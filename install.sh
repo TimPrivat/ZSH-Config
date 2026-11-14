@@ -1,44 +1,59 @@
 #!/bin/bash
-
-echo "installing zsh:"
-
 export zsh_config_dir="${HOME}/.zsh/ZSH-Config"
-
 runtime="${runtime:-desktop}" 
-packages="zsh curl git fastfetch fzf git-delta ghostty locales vim"
+locale="${locale:-de_DE.UTF-8}" 
 
-for p in $packages; do
+packages=(
+    zsh 
+    curl 
+    git 
+    fastfetch 
+    fzf 
+    git-delta 
+    ghostty 
+    locales 
+    vim
+)
+
+
+for p in "${packages[@]}"; do
     if ! dpkg -s "$p" >/dev/null 2>&1; then
         
         sudo apt update -y && \
-        sudo apt-get install -y $packages
+        sudo apt-get install -y "${packages[@]}"
 
         break;
     fi
 done
 
-sudo locale-gen de_DE.UTF-8
-
+# set zsh as default shell 
 chsh -s "$(which zsh)"
-
-echo "current Shell: $SHELL"
-$SHELL --version
+# generate system locale
+sudo locale-gen "${locale}"
 
 echo "installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-
-# remove default generated .zshrc file
-rm "${HOME}/.zshrc"
 
 # create required dirs
 mkdir -p "${HOME}/.config/zsh-edit-select"
 mkdir -p "${HOME}/.config/ghostty"
 
-# create hard-links between configs and repository
-ln "${zsh_config_dir}/.zshrc" "${HOME}/.zshrc"
-ln "${zsh_config_dir}/config-files/zsh-edit-select" "${HOME}/.config/zsh-edit-select/config"
-ln "${zsh_config_dir}/config-files/config.ghostty" "${HOME}/.config/ghostty/config.ghostty"
+# config files in the system and their version in this repository
+declare -A config_files
+config_files["${HOME}/.zshrc"]="${zsh_config_dir}/.zshrc"
+config_files["${HOME}/.config/zsh-edit-select/config"]="${zsh_config_dir}/config-files/zsh-edit-select"
+config_files["${HOME}/.config/ghostty/config.ghostty"]="${zsh_config_dir}/config-files/config.ghostty"
+
+for config in "${!config_files[@]}"; do
+    echo "${config}"
+    if [[ -f "${config}" ]]; then
+        echo "Found previously existing ${config}"
+        echo "moving to ${config}.old"
+        mv "${config}" "${config}.old"
+    fi 
+    echo "creating hard-link between ${config} and ${config_files[${config}]}"
+    ln "${config_files[${config}]}" "${config}"
+done
 
 # setup secrets file
 secret_file="${HOME}/.zsh/secrets"

@@ -13,13 +13,19 @@ git clone https://github.com/TimPrivat/ZSH-Config.git ~/.zsh/ZSH-Config
 **This will install**
 - Ghostty-Terminal
 - Custom ghostty config
-- zsh
-- oh-my-zsh (including several plugins)
-- custom keyboard-shortcuts 
+- Zsh
+- Oh-my-zsh (including several plugins)
+- Custom keyboard-shortcuts 
 - fzf
-- fastftech
+- Fastfech
 - and several packages (git, curl, locales,...)
 
+##### Parameters
+You can set environment variables as parameters before running the script to customize your installation:
+
+|Value|Description|Default|
+|:---:|:---:|:---:|
+|locale|Installs a the given locale into the system|de_DE.UTF-8|
 
 ### Usage
 

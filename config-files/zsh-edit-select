@@ -1,4 +1,3 @@
-# copy to ~/.config/zsh-edit-select/config
 # ctrl + shift + v : paste
 EDIT_SELECT_KEY_PASTE='^[[86;6u'
 # ctrl + shift + x : cut
