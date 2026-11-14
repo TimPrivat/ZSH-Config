@@ -26,4 +26,4 @@ fi
 
 # timer plugin config 
 TIMER_FORMAT='[%d]'
-TIMER_PRECISION=2
+TIMER_PRECISION=1

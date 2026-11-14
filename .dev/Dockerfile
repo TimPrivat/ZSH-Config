@@ -14,15 +14,12 @@ RUN useradd -m -s /bin/bash docker && \
 
 USER docker
 WORKDIR /home/docker/
-#COPY --chown=docker:docker . .zsh/ZSH-Config 
+# For docker development its better to just copy the files
+COPY --chown=docker:docker . .zsh/ZSH-Config 
 
-RUN mkdir .zsh && \
-    git clone https://github.com/TimPrivat/ZSH-Config.git .zsh/ZSH-Config
-    
 WORKDIR /home/docker/.zsh/ZSH-Config
-RUN git checkout  update/10_2026
 
 WORKDIR /home/docker/
-ENTRYPOINT [ ".zsh/ZSH-Config/install-shell.sh" ]
+ENTRYPOINT [ ".zsh/ZSH-Config/install.sh" ]
 
 
