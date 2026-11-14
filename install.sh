@@ -52,7 +52,7 @@ for config in "${!config_files[@]}"; do
         mv "${config}" "${config}.old"
     fi 
     echo "creating hard-link between ${config} and ${config_files[${config}]}"
-    ln "${config_files[${config}]}" "${config}"
+    ln -s "${config_files[${config}]}" "${config}"
 done
 
 # setup secrets file
