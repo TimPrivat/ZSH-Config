@@ -4,7 +4,8 @@ export zsh_config_dir="${HOME}/.zsh/ZSH-Config"
 
 # update this project 
 if [[ -z "${runtime}" ]] || [[ "${runtime}" != "docker" ]]; then
-  git -C -q "${zsh_config_dir}" pull
+  git -C "${zsh_config_dir}" pull  &> /dev/null
+
 fi 
 # load default-config files
 source "${zsh_config_dir}/default-configs/env-vars.sh"
