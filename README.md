@@ -1,6 +1,7 @@
 # ZSH-Config
 My customized .zshrc settigns 
 
+Provides a framework for structured Shell configuration.
 
 ### Installation
 
