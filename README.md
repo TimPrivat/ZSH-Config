@@ -19,6 +19,7 @@ git clone https://github.com/TimPrivat/ZSH-Config.git ~/.zsh/ZSH-Config
 - Custom keyboard-shortcuts 
 - fzf
 - Fastfech
+- SDKman
 - and several packages (git, curl, locales,...)
 
 ##### Parameters

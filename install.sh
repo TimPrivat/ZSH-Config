@@ -4,35 +4,35 @@ runtime="${runtime:-desktop}"
 locale="${locale:-en_US.UTF-8}" 
 
 packages=(
-    zsh 
     curl 
-    git 
     fastfetch 
     fzf 
-    git-delta 
     ghostty 
+    git 
+    git-delta 
     locales 
     vim
+    unzip
+    zip
+    zsh 
 )
 
 
-for p in "${packages[@]}"; do
-    if ! dpkg -s "$p" >/dev/null 2>&1; then
-        
-        sudo apt update -y && \
-        sudo apt-get install -y "${packages[@]}"
+# Install required packages
+sudo apt update -y
+sudo apt-get install -y "${packages[@]}"
 
-        break;
-    fi
-done
 
 # set zsh as default shell 
 chsh -s "$(which zsh)"
 # generate system locale
 sudo locale-gen "${locale}"
 
-echo "installing oh-my-zsh"
+# Install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+# Install skdman
+curl -s "https://get.sdkman.io" | bash
 
 # create required dirs
 mkdir -p "${HOME}/.config/zsh-edit-select"

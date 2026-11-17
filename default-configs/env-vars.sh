@@ -23,3 +23,6 @@ fi
 # timer plugin config 
 export TIMER_FORMAT='[%d]'
 export TIMER_PRECISION=1
+
+# SDK Man default dir
+export SDKMAN_DIR="$HOME/.sdkman"

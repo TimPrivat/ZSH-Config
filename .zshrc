@@ -31,4 +31,7 @@ plugins=(
 
 source "${ZSH}/oh-my-zsh.sh"
 
+# Load SDKMAN
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
 fastfetch
