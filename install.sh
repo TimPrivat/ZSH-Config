@@ -1,7 +1,7 @@
 #!/bin/bash
 export zsh_config_dir="${HOME}/.zsh/ZSH-Config"
 runtime="${runtime:-desktop}" 
-locale="${locale:-de_DE.UTF-8}" 
+locale="${locale:-en_US.UTF-8}" 
 
 packages=(
     zsh 

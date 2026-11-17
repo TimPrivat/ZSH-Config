@@ -5,10 +5,9 @@ export ZSH_THEME="lukerandall"
 # Plugin Update frequency
 export UPDATE_ZSH_DAYS=1
 
-# German locals
-export LANG=de_DE.UTF-8
-export LC_CTYPE=de_DE.UTF-8
-export LC_ALL=de_DE.UTF-8
+# US locals
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # FZF 
 export FZF_DEFAULT_OPTS="--highlight-line --info=inline-right --ansi --layout=reverse --border"

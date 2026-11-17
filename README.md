@@ -26,7 +26,7 @@ You can set environment variables as parameters before running the script to cus
 
 |Value|Description|Default|
 |:---:|:---:|:---:|
-|locale|Installs a the given locale into the system|de_DE.UTF-8|
+|locale|Installs a the given locale into the system|en_US.UTF-8|
 
 ### Usage
 
