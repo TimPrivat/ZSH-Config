@@ -10,7 +10,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # FZF 
-export FZF_DEFAULT_OPTS="--highlight-line --info=inline-right --ansi --layout=reverse --border"
+export FZF_DEFAULT_OPTS="--highlight-line --info=inline-right --ansi --layout=reverse"
 
 # secret file location
 export secret_file="${HOME}/.zsh/secrets"
